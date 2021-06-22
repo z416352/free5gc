@@ -1,6 +1,4 @@
 # Toolchain
-# Go vendor
-vendor/
 # Goland project folder
 .idea/
 # Visual Studio Code
@@ -20,17 +18,9 @@ testkeylog/
 log/
 *.log
 *.pcap
-config/test/smfcfg.test.yaml
 
 # build
 bin/
 
 # release
 release/src
-
-# webconsole
-webconsole/bin
-webconsole/public
-
-packages/
-free5gc.zip
