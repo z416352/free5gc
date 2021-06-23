@@ -13,6 +13,9 @@ type ServiceName string
 
 // List of ServiceName
 const (
+	ServiceName_NNAF_AUTH                 ServiceName = "nnaf-auth"
+	ServiceName_NNAF_SORPROTECTION        ServiceName = "nnaf-sorprotection"
+	ServiceName_NNAF_UPUPROTECTION        ServiceName = "nnaf-upuprotection"
 	ServiceName_NNRF_NFM                  ServiceName = "nnrf-nfm"
 	ServiceName_NNRF_DISC                 ServiceName = "nnrf-disc"
 	ServiceName_NUDM_SDM                  ServiceName = "nudm-sdm"
@@ -26,9 +29,9 @@ const (
 	ServiceName_NAMF_LOC                  ServiceName = "namf-loc"
 	ServiceName_NSMF_PDUSESSION           ServiceName = "nsmf-pdusession"
 	ServiceName_NSMF_EVENT_EXPOSURE       ServiceName = "nsmf-event-exposure"
-	ServiceName_NAUSF_AUTH                ServiceName = "nausf-auth"
-	ServiceName_NAUSF_SORPROTECTION       ServiceName = "nausf-sorprotection"
-	ServiceName_NAUSF_UPUPROTECTION       ServiceName = "nausf-upuprotection"
+	// ServiceName_NAUSF_AUTH                ServiceName = "nausf-auth"
+	// ServiceName_NAUSF_SORPROTECTION       ServiceName = "nausf-sorprotection"
+	// ServiceName_NAUSF_UPUPROTECTION       ServiceName = "nausf-upuprotection"
 	ServiceName_NNEF_PFDMANAGEMENT        ServiceName = "nnef-pfdmanagement"
 	ServiceName_NPCF_AM_POLICY_CONTROL    ServiceName = "npcf-am-policy-control"
 	ServiceName_NPCF_SMPOLICYCONTROL      ServiceName = "npcf-smpolicycontrol"

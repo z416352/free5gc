@@ -17,5 +17,6 @@ type AuthenticationVector struct {
 	CkPrime  string `json:"ckPrime" yaml:"ckPrime" bson:"ckPrime" mapstructure:"CkPrime"`
 	IkPrime  string `json:"ikPrime" yaml:"ikPrime" bson:"ikPrime" mapstructure:"IkPrime"`
 	XresStar string `json:"xresStar" yaml:"xresStar" bson:"xresStar" mapstructure:"XresStar"`
-	Kausf    string `json:"kausf" yaml:"kausf" bson:"kausf" mapstructure:"Kausf"`
+	// Kausf    string `json:"kausf" yaml:"kausf" bson:"kausf" mapstructure:"Kausf"`
+	Knaf     string `json:"kausf" yaml:"kausf" bson:"kausf" mapstructure:"Kausf"`
 }

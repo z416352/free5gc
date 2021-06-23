@@ -38,7 +38,8 @@ type Logger struct {
 	UDR                UDR                `yaml:"UDR"`
 	NRF                NRF                `yaml:"NRF"`
 	NSSF               NSSF               `yaml:"NSSF"`
-	AUSF               AUSF               `yaml:"AUSF"`
+	// AUSF               AUSF               `yaml:"AUSF"`
+	NAF                NAF                `yaml:"AUSF"`
 	N3IWF              N3IWF              `yaml:"N3IWF"`
 	WEBUI              WEBUI              `yaml:"WEBUI"`
 }
@@ -79,6 +80,11 @@ type NSSF struct {
 }
 
 type AUSF struct {
+	DebugLevel   string `yaml:"debugLevel"`
+	ReportCaller bool   `yaml:"ReportCaller"`
+}
+
+type NAF struct {
 	DebugLevel   string `yaml:"debugLevel"`
 	ReportCaller bool   `yaml:"ReportCaller"`
 }

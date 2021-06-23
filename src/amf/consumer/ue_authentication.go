@@ -11,7 +11,7 @@ import (
 
 	"free5gc/lib/nas/nasType"
 	"free5gc/lib/openapi"
-	"free5gc/lib/openapi/Nausf_UEAuthentication"
+	"free5gc/lib/openapi/Nnaf_UEAuthentication"
 	"free5gc/lib/openapi/models"
 	amf_context "free5gc/src/amf/context"
 	"free5gc/src/amf/logger"
@@ -19,10 +19,10 @@ import (
 
 func SendUEAuthenticationAuthenticateRequest(ue *amf_context.AmfUe,
 	resynchronizationInfo *models.ResynchronizationInfo) (*models.UeAuthenticationCtx, *models.ProblemDetails, error) {
-	configuration := Nausf_UEAuthentication.NewConfiguration()
-	configuration.SetBasePath(ue.AusfUri)
+	configuration := Nnaf_UEAuthentication.NewConfiguration()
+	configuration.SetBasePath(ue.NafUri)
 
-	client := Nausf_UEAuthentication.NewAPIClient(configuration)
+	client := Nnaf_UEAuthentication.NewAPIClient(configuration)
 
 	amfSelf := amf_context.AMF_Self()
 	servedGuami := amfSelf.ServedGuamiList[0]
@@ -62,11 +62,11 @@ func SendAuth5gAkaConfirmRequest(ue *amf_context.AmfUe, resStar string) (
 		ausfUri = fmt.Sprintf("%s://%s", confirmUri.Scheme, confirmUri.Host)
 	}
 
-	configuration := Nausf_UEAuthentication.NewConfiguration()
+	configuration := Nnaf_UEAuthentication.NewConfiguration()
 	configuration.SetBasePath(ausfUri)
-	client := Nausf_UEAuthentication.NewAPIClient(configuration)
+	client := Nnaf_UEAuthentication.NewAPIClient(configuration)
 
-	confirmData := &Nausf_UEAuthentication.UeAuthenticationsAuthCtxId5gAkaConfirmationPutParamOpts{
+	confirmData := &Nnaf_UEAuthentication.UeAuthenticationsAuthCtxId5gAkaConfirmationPutParamOpts{
 		ConfirmationData: optional.NewInterface(models.ConfirmationData{
 			ResStar: resStar,
 		}),
@@ -100,11 +100,11 @@ func SendEapAuthConfirmRequest(ue *amf_context.AmfUe, eapMsg nasType.EAPMessage)
 	}
 	ausfUri := fmt.Sprintf("%s://%s", confirmUri.Scheme, confirmUri.Host)
 
-	configuration := Nausf_UEAuthentication.NewConfiguration()
+	configuration := Nnaf_UEAuthentication.NewConfiguration()
 	configuration.SetBasePath(ausfUri)
-	client := Nausf_UEAuthentication.NewAPIClient(configuration)
+	client := Nnaf_UEAuthentication.NewAPIClient(configuration)
 
-	eapSessionReq := &Nausf_UEAuthentication.EapAuthMethodParamOpts{
+	eapSessionReq := &Nnaf_UEAuthentication.EapAuthMethodParamOpts{
 		EapSession: optional.NewInterface(models.EapSession{
 			EapPayload: base64.StdEncoding.EncodeToString(eapMsg.GetEAPMessage()),
 		}),

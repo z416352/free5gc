@@ -499,7 +499,7 @@ func GenerateAuthDataProcedure(authInfoRequest models.AuthenticationInfoRequest,
 		av.Rand = hex.EncodeToString(RAND)
 		av.XresStar = hex.EncodeToString(xresStar)
 		av.Autn = hex.EncodeToString(AUTN)
-		av.Kausf = hex.EncodeToString(kdfValForKausf)
+		av.Knaf = hex.EncodeToString(kdfValForKausf)
 	} else { // EAP-AKA'
 		response.AuthType = models.AuthType_EAP_AKA_PRIME
 

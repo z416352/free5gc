@@ -94,9 +94,13 @@ type AmfUe struct {
 	SubscribedNssai                   []models.SubscribedSnssai
 	AccessAndMobilitySubscriptionData *models.AccessAndMobilitySubscriptionData
 	/* contex abut ausf */
-	AusfGroupId                       string
-	AusfId                            string
-	AusfUri                           string
+	// AusfGroupId                       string
+	// AusfId                            string
+	// AusfUri                           string
+	/* contex about naf */
+	NafGroupId                        string
+	NafId                             string
+	NafUri                            string
 	RoutingIndicator                  string
 	AuthenticationCtx                 *models.UeAuthenticationCtx
 	AuthFailureCauseSynchFailureTimes int
@@ -560,8 +564,8 @@ func (ue *AmfUe) CopyDataFromUeContextModel(ueContext models.UeContext) {
 		ue.UdmGroupId = ueContext.UdmGroupId
 	}
 
-	if ueContext.AusfGroupId != "" {
-		ue.AusfGroupId = ueContext.AusfGroupId
+	if ueContext.NafGroupId != "" {
+		ue.NafGroupId = ueContext.NafGroupId
 	}
 
 	if ueContext.RoutingIndicator != "" {

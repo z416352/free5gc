@@ -15,7 +15,8 @@ type UeContext struct {
 	GpsiList                 []string                `json:"gpsiList,omitempty"`
 	Pei                      string                  `json:"pei,omitempty"`
 	UdmGroupId               string                  `json:"udmGroupId,omitempty"`
-	AusfGroupId              string                  `json:"ausfGroupId,omitempty"`
+	// AusfGroupId              string                  `json:"ausfGroupId,omitempty"`
+	NafGroupId               string                  `json:"ausfGroupId,omitempty"`
 	RoutingIndicator         string                  `json:"routingIndicator,omitempty"`
 	GroupList                []string                `json:"groupList,omitempty"`
 	DrxParameter             string                  `json:"drxParameter,omitempty"`

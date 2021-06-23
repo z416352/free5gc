@@ -1691,17 +1691,17 @@ func AuthenticationProcedure(ue *context.AmfUe, accessType models.AccessType) (b
 
 	// TODO: consider ausf group id, Routing ID part of SUCI
 	param := Nnrf_NFDiscovery.SearchNFInstancesParamOpts{}
-	resp, err := consumer.SendSearchNFInstances(amfSelf.NrfUri, models.NfType_AUSF, models.NfType_AMF, &param)
+	resp, err := consumer.SendSearchNFInstances(amfSelf.NrfUri, models.NfType_NAF, models.NfType_AMF, &param)
 	if err != nil {
-		logger.GmmLog.Error("AMF can not select an AUSF by NRF")
+		logger.GmmLog.Error("AMF can not select an NAF by NRF")
 		return false, err
 	}
 
 	// select the first AUSF, TODO: select base on other info
 	var ausfUri string
 	for _, nfProfile := range resp.NfInstances {
-		ue.AusfId = nfProfile.NfInstanceId
-		ausfUri = util.SearchNFServiceUri(nfProfile, models.ServiceName_NAUSF_AUTH, models.NfServiceStatus_REGISTERED)
+		ue.NafId = nfProfile.NfInstanceId
+		ausfUri = util.SearchNFServiceUri(nfProfile, models.ServiceName_NNAF_AUTH, models.NfServiceStatus_REGISTERED)
 		if ausfUri != "" {
 			break
 		}
@@ -1711,7 +1711,7 @@ func AuthenticationProcedure(ue *context.AmfUe, accessType models.AccessType) (b
 		logger.GmmLog.Errorf(err.Error())
 		return false, err
 	}
-	ue.AusfUri = ausfUri
+	ue.NafUri = ausfUri
 
 	response, problemDetails, err := consumer.SendUEAuthenticationAuthenticateRequest(ue, nil)
 	if err != nil {
@@ -2036,6 +2036,8 @@ func HandleAuthenticationResponse(ue *context.AmfUe, accessType models.AccessTyp
 		return fmt.Errorf("Ue Authentication Context is nil")
 	}
 
+	logger.GmmLog.Debug("[AMF] Handle Authentication Response => AuthType = " + ue.AuthenticationCtx.AuthType)
+	// logger.GmmLog.Info("[AMF] Handle Authentication Response finish")
 	switch ue.AuthenticationCtx.AuthType {
 	case models.AuthType__5_G_AKA:
 		var av5gAka models.Av5gAka

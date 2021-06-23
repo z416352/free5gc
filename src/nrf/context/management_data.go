@@ -229,23 +229,23 @@ func nnrfNFManagementOption(nf *models.NfProfile, nfprofile models.NfProfile) {
 
 	}
 	//ausfInfo
-	if nfprofile.AusfInfo != nil {
+	if nfprofile.NafInfo != nil {
 
-		var a models.AusfInfo
+		var a models.NafInfo
 
-		if nfprofile.AusfInfo.GroupId != "" {
-			a.GroupId = nfprofile.AusfInfo.GroupId
+		if nfprofile.NafInfo.GroupId != "" {
+			a.GroupId = nfprofile.NafInfo.GroupId
 		}
 
-		if nfprofile.AusfInfo.SupiRanges != nil {
-			a.SupiRanges = nfprofile.AusfInfo.SupiRanges
+		if nfprofile.NafInfo.SupiRanges != nil {
+			a.SupiRanges = nfprofile.NafInfo.SupiRanges
 		}
 
-		if nfprofile.AusfInfo.RoutingIndicators != nil {
-			a.RoutingIndicators = nfprofile.AusfInfo.RoutingIndicators
+		if nfprofile.NafInfo.RoutingIndicators != nil {
+			a.RoutingIndicators = nfprofile.NafInfo.RoutingIndicators
 		}
 
-		nf.AusfInfo = &a
+		nf.NafInfo = &a
 	}
 	//amfInfo
 	if nfprofile.AmfInfo != nil {
@@ -655,11 +655,11 @@ func GetNofificationUri(nfProfile models.NfProfile) []string {
 			},
 		}
 		setUriListByFilter(nfGroupCond, &uriList)
-	} else if nfProfile.AusfInfo != nil {
+	} else if nfProfile.NafInfo != nil {
 		var nfGroupCond = bson.M{
 			"subscrCond": bson.M{
 				"nfType":    nfProfile.NfType,
-				"nfGroupId": (*nfProfile.AusfInfo).GroupId,
+				"nfGroupId": (*nfProfile.NafInfo).GroupId,
 			},
 		}
 		setUriListByFilter(nfGroupCond, &uriList)

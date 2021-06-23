@@ -53,8 +53,8 @@ func BuildUeContextModel(ue *amf_context.AmfUe) (ueContext models.UeContext) {
 		ueContext.UdmGroupId = ue.UdmGroupId
 	}
 
-	if ue.AusfGroupId != "" {
-		ueContext.AusfGroupId = ue.AusfGroupId
+	if ue.NafGroupId != "" {
+		ueContext.NafGroupId = ue.NafGroupId
 	}
 
 	if ue.RoutingIndicator != "" {

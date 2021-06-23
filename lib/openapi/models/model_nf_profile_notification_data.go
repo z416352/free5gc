@@ -36,7 +36,8 @@ type NfProfileNotificationData struct {
 	Locality                         string                            `json:"locality,omitempty" yaml:"locality" bson:"locality" mapstructure:"Locality"`
 	UdrInfo                          *UdrInfo                          `json:"udrInfo,omitempty" yaml:"udrInfo" bson:"udrInfo" mapstructure:"UdrInfo"`
 	UdmInfo                          *UdmInfo                          `json:"udmInfo,omitempty" yaml:"udmInfo" bson:"udmInfo" mapstructure:"UdmInfo"`
-	AusfInfo                         *AusfInfo                         `json:"ausfInfo,omitempty" yaml:"ausfInfo" bson:"ausfInfo" mapstructure:"AusfInfo"`
+	// AusfInfo                         *AusfInfo                         `json:"ausfInfo,omitempty" yaml:"ausfInfo" bson:"ausfInfo" mapstructure:"AusfInfo"`
+	NafInfo                          *NafInfo                         `json:"ausfInfo,omitempty" yaml:"ausfInfo" bson:"ausfInfo" mapstructure:"AusfInfo"`
 	AmfInfo                          *AmfInfo                          `json:"amfInfo,omitempty" yaml:"amfInfo" bson:"amfInfo" mapstructure:"AmfInfo"`
 	SmfInfo                          *SmfInfo                          `json:"smfInfo,omitempty" yaml:"smfInfo" bson:"smfInfo" mapstructure:"SmfInfo"`
 	UpfInfo                          *UpfInfo                          `json:"upfInfo,omitempty" yaml:"upfInfo" bson:"upfInfo" mapstructure:"UpfInfo"`

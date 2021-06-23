@@ -74,7 +74,7 @@ func CreateUEContextProcedure(ueContextID string, createUeContextRequest models.
 
 	// optional
 	ue.UdmGroupId = ueContextCreateData.UeContext.UdmGroupId
-	ue.AusfGroupId = ueContextCreateData.UeContext.AusfGroupId
+	ue.NafGroupId = ueContextCreateData.UeContext.NafGroupId
 	//ueContextCreateData.UeContext.HpcfId
 	ue.RatType = ueContextCreateData.UeContext.RestrictedRatList[0] //minItem = -1
 	//ueContextCreateData.UeContext.ForbiddenAreaList
@@ -306,8 +306,8 @@ func buildUEContextModel(ue *context.AmfUe) *models.UeContext {
 		ueContext.UdmGroupId = ue.UdmGroupId
 	}
 
-	if ue.AusfGroupId != "" {
-		ueContext.AusfGroupId = ue.AusfGroupId
+	if ue.NafGroupId != "" {
+		ueContext.NafGroupId = ue.NafGroupId
 	}
 
 	if ue.RoutingIndicator != "" {

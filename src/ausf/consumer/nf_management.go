@@ -23,7 +23,7 @@ func BuildNFInstance(ausfContext *ausf_context.AUSFContext) (profile models.NfPr
 	if len(services) > 0 {
 		profile.NfServices = &services
 	}
-	var ausfInfo models.AusfInfo
+	var ausfInfo models.NafInfo
 	ausfInfo.GroupId = ausfContext.GroupID
 	profile.AusfInfo = &ausfInfo
 	profile.PlmnList = &ausfContext.PlmnList

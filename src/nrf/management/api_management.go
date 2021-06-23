@@ -35,7 +35,8 @@ func GetNrfInfo() *models.NrfInfo {
 
 	nrfinfo.ServedUdrInfo = getUdrInfo()
 	nrfinfo.ServedUdmInfo = getUdmInfo()
-	nrfinfo.ServedAusfInfo = getAusfInfo()
+	// nrfinfo.ServedAusfInfo = getAusfInfo()
+	nrfinfo.ServedNafInfo = getAusfInfo()
 	nrfinfo.ServedAmfInfo = getAmfInfo()
 	nrfinfo.ServedSmfInfo = getSmfInfo()
 	nrfinfo.ServedUpfInfo = getUpfInfo()
@@ -96,9 +97,9 @@ func getUdmInfo() map[string]models.UdmInfo {
 	return servedUdmInfo
 
 }
-func getAusfInfo() map[string]models.AusfInfo {
-	var servedAusfInfo map[string]models.AusfInfo
-	servedAusfInfo = make(map[string]models.AusfInfo)
+func getAusfInfo() map[string]models.NafInfo {
+	var servedAusfInfo map[string]models.NafInfo
+	servedAusfInfo = make(map[string]models.NafInfo)
 	var AUSFProfile models.NfProfile
 
 	collName := "NfProfile"
@@ -115,7 +116,7 @@ func getAusfInfo() map[string]models.AusfInfo {
 			panic(err)
 		}
 		index := strconv.Itoa(i)
-		servedAusfInfo[index] = *AUSFProfile.AusfInfo
+		servedAusfInfo[index] = *AUSFProfile.NafInfo
 	}
 	return servedAusfInfo
 
